@@ -1,0 +1,67 @@
+yarn init -y
+yarn add eslint -D
+yarn eslint --init
+
+How would you like to use ESLint? To check syntax, find problems, and enforce code style
+? What type of modules does your project use? CommonJS (require/exports)
+? Which framework does your project use? None of these
+? Where does your code run? Node? How would you like to define a style for your project? Use a popular style guide
+? Which style guide do you want to follow? Standard (https://github.com/standard/standard)
+? What format do you want your config file to be in? JSON
+Would you like to install them now with npm? Yes
+
+remove file package-lock.json
+yarn (recreate yarn.lock)
+
+
+yarn add nodemon -D
+
+In package.json add scripts
+"scripts": {
+    "start": "nodemon src/index.js"
+},
+
+create .editorconfig
+create .gitignore
+-------
+
+yarn add express nunjucks
+yarn add sequelize
+yarn add sequelize-cli -D
+----
+npx sequelize init
+
+Created "config\config.json"
+Successfully created models folder at "E:\HTML\GoNode\modulo2\models".
+Successfully created migrations folder at "E:\HTML\GoNode\modulo2\migrations".
+Successfully created seeders folder at "E:\HTML\GoNode\modulo2\seeders".
+
+----
+move "config" into "src"
+create folder "database" in "src"
+move "migrations" and "seeders" to "database"
+move "models" to "app" folder
+----
+create file ".sequelizerc" to configure sequelize files
+
+---for tests
+npx sequelize migration:create --name=create-users
+----
+
+Install postgres package
+yarn add pg
+----
+After install Docker
+Create database
+docker run --name <name_base> -p <PORT:TO_PORT> -d (detached) -t (name image) <name_image>
+docker run --name database -p 5432:5432 -d -t kartoza/postgis
+---
+To run create tables on migrate
+npx sequelize db:migrate
+-----
+To crypt password
+yarn add bcryptjs
+----
+Install extension to upload files
+yarn add multer
+
