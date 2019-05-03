@@ -55,6 +55,12 @@ After install Docker
 Create database
 docker run --name <name_base> -p <PORT:TO_PORT> -d (detached) -t (name image) <name_image>
 docker run --name database -p 5432:5432 -d -t kartoza/postgis
+
+*****
+Run DATABASE
+docker start database
+*****
+
 ---
 To run create tables on migrate
 npx sequelize db:migrate
@@ -65,3 +71,9 @@ yarn add bcryptjs
 Install extension to upload files
 yarn add multer
 
+----
+To controller session:
+yarn add express-session
+----
+For save session em development envirement
+yarn add connect-loki
