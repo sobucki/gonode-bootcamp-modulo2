@@ -77,3 +77,6 @@ yarn add express-session
 ----
 For save session em development envirement
 yarn add connect-loki
+----
+For show errors on screem
+yarn add connect-flash
