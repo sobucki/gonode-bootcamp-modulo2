@@ -80,3 +80,10 @@ yarn add connect-loki
 ----
 For show errors on screem
 yarn add connect-flash
+
+*************
+Create migration to Appointment
+npx sequelize migration:create --name=create-appointments
+-------
+To work with times
+yarn add moment
