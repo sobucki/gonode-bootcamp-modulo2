@@ -19,7 +19,7 @@ class SessionController {
       req.flash('error', 'Senha inválida')
       return res.redirect('/')
     }
-
+    // salva na sessao o usuario logado
     req.session.user = user
 
     return res.redirect('/app/dashboard')

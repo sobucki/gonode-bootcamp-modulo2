@@ -7,12 +7,12 @@ const routes = express.Router()
 const authMiddleware = require('./app/middlewares/auth')
 const guestMiddleware = require('./app/middlewares/guest')
 
-const UserController = require('./app/controllers/UserController')
-const SessionController = require('./app/controllers/SessionController')
-const DashboardController = require('./app/controllers/DashboardController')
-const FileController = require('./app/controllers/FileController')
 const AppointmentController = require('./app/controllers/AppointmentController')
 const AvailableController = require('./app/controllers/AvailableController')
+const DashboardController = require('./app/controllers/DashboardController')
+const FileController = require('./app/controllers/FileController')
+const SessionController = require('./app/controllers/SessionController')
+const UserController = require('./app/controllers/UserController')
 
 // middleware para deixar em uma variavel globlal a todas views do nunjuks
 routes.use((req, res, next) => {

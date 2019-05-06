@@ -2,6 +2,7 @@ const express = require('express')
 const session = require('express-session')
 const LokiStore = require('connect-loki')(session)
 const nunjucks = require('nunjucks')
+const dateFilter = require('nunjucks-date-filter')
 const path = require('path')
 const flash = require('connect-flash')
 
@@ -35,11 +36,13 @@ class App {
   view () {
     // utiliza o path para evitar conflitos de caminhos entre sistemas
     // navega ate a pasta onde estao as views
-    nunjucks.configure(path.resolve(__dirname, 'app', 'views'), {
+    const env = nunjucks.configure(path.resolve(__dirname, 'app', 'views'), {
       watch: this.isDev,
       express: this.express,
       autoescape: true
     })
+    // adiciona o dateFilter para que possa ser utilizado as propriedades na view
+    env.addFilter('date', dateFilter)
     // referencia a pasta public como statica para acesso externo
     this.express.use(express.static(path.resolve(__dirname, 'public')))
     // seta a extensao dos arquivos como njk

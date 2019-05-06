@@ -87,3 +87,9 @@ npx sequelize migration:create --name=create-appointments
 -------
 To work with times
 yarn add moment
+
+----
+Add nunjucks-date-filter for complement to views operations
+yarn add nunjucks-date-filter
+
+

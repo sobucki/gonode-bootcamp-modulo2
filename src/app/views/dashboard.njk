@@ -3,19 +3,36 @@
 {% block body %}
 <div class="content">
   <strong>Olá, {{ user.name }} </strong>
-  <p>Inicie um agendamento escolhendo um profissional abaixo:</p>
-  <ul class="providers">
-    {% for provider in providers %}
+  {% if user.provider === false %}
+    <p>Inicie um agendamento escolhendo um profissional abaixo:</p>
+    <ul class="providers">
+      {% for provider in result.providers %}
+        <li class="provider">
+          <div>
+          <img src="/files/{{ provider.avatar }}" alt="">
+          <strong>{{ provider.name }}</strong>
+
+          </div>
+          <a href="/app/appointments/new/{{ provider.id }}">+</a>
+        </li>
+      {% endfor %}
+    </ul>
+
+  {% else %}
+
+    <p>Veja abaixo os atendimentos que você possui:</p>
+    <ul class="providers">
+    {% for appointment in result.appointments %}
       <li class="provider">
         <div>
-        <img src="/files/{{ provider.avatar }}" alt="">
-        <strong>{{ provider.name }}</strong>
-
+          <img src="/files/{{ appointment.user.avatar }}" alt="">
+           <strong>{{ appointment.user.name }} <br> {{ appointment.date | date("HH:mm") }}</strong>
         </div>
-        <a href="/app/appointments/new/{{ provider.id }}">+</a>
       </li>
     {% endfor %}
-  </ul>
+    </ul>
+  {% endif %}
+
 
 <a href="/app/logout" class="logout">Sair</a>
 </div>
